@@ -116,3 +116,105 @@ for (int numero : numeros) {
 - Os elementos são indexados a partir do zero.
 - Arrays de objetos são inicializados com null, e arrays de primitivos com 0 (ou equivalente).
 - Arrays têm atributo .length (sem parênteses, diferente de métodos!).
+
+---
+
+## 🧱 Object – A Superclasse de Todas as Classes
+
+### 📌 O que é?
+
+- Em Java, todas as classes herdam da classe Object, direta ou indiretamente.
+- Object está no pacote java.lang e fornece comportamentos comuns a todos os objetos.
+
+### 📦 Exemplo:
+
+```
+public class Pessoa {
+    String nome;
+}
+```
+
+- Mesmo sem escrever explicitamente, essa classe é equivalente a:
+
+```java
+public class Pessoa extends Object {
+    String nome;
+}
+```
+
+### 🧠 Métodos herdados de Object:
+
+- toString(): representação textual do objeto
+- equals(Object obj): compara se dois objetos são "iguais"
+- hashCode(): usado em estruturas como HashMap
+- getClass(): retorna a classe do objeto em tempo de execução
+- clone(): cria uma cópia (se suportado)
+- finalize(): chamado antes do garbage collector remover o objeto
+
+---
+
+## 📂 Pacote java.lang
+
+### 📌 O que é?
+
+- O pacote java.lang contém as classes fundamentais da linguagem Java.
+- É importado automaticamente, ou seja, não precisa usar import.
+
+### 🚀 Principais classes de java.lang:
+
+- Object → superclasse de tudo
+- String, StringBuilder, StringBuffer
+- Math, Integer, Double, Boolean
+- System, Runtime, Thread, Exception, Throwable
+
+### ✅ Dicas:
+
+- Você pode sobrescrever métodos de Object para adaptar o comportamento da sua classe, como por exemplo:
+
+```java
+@Override
+public String toString() {
+    return "Nome: " + this.nome;
+}
+```
+
+---
+
+## 📝 Sobrescrevendo toString() com @Override
+
+### 📌 O que é?
+
+- O método toString() vem da classe Object e serve para representar um objeto como texto.
+- Por padrão, retorna algo como: MinhaClasse@3fa7efb9 (nome da classe + hashcode).
+- Ao sobrescrever (@Override), você pode definir uma saída legível para depuração, logs, prints etc.
+
+### 🧱 Exemplo:
+
+```java
+public class Produto {
+    private String nome;
+    private double preco;
+
+    public Produto(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto: " + nome + ", Preço: R$ " + preco;
+    }
+}
+```
+
+### ▶️ Uso:
+
+```java
+Produto p = new Produto("Caderno", 14.99);
+System.out.println(p); // Saída: Produto: Caderno, Preço: R$ 14.99
+```
+- Quando usamos System.out.println(obj);, o Java chama automaticamente obj.toString().
+
+### ✅ Dica:
+
+- Sempre que quiser que sua classe tenha uma representação de texto personalizada e útil, sobrescreva toString() com @Override.
