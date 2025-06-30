@@ -1,3 +1,5 @@
+package br.com.alura.orientacaoObjetoJava.principal;
+
 import br.com.alura.orientacaoObjetoJava.calculos.CalculadoraDeTempo;
 import br.com.alura.orientacaoObjetoJava.calculos.FiltroRecomendacao;
 import br.com.alura.orientacaoObjetoJava.modelos.Episodio;
@@ -41,7 +43,7 @@ public class Principal {
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
 
-        Filme filmeDoGuilherme = new Filme("Dogville", 2002;
+        Filme filmeDoGuilherme = new Filme("Dogville", 2002);
         filmeDoGuilherme.setDuracaoEmMinutos(200);
         filmeDoGuilherme.avalia(10);
 
