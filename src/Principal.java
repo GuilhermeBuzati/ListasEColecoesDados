@@ -4,6 +4,8 @@ import br.com.alura.orientacaoObjetoJava.modelos.Episodio;
 import br.com.alura.orientacaoObjetoJava.modelos.Filme;
 import br.com.alura.orientacaoObjetoJava.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
         Filme meuFilme = new Filme();
@@ -42,5 +44,19 @@ public class Principal {
         episodio.setSerie(lost);
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
+
+        Filme filmeDoGuilherme = new Filme();
+        filmeDoGuilherme.setDuracaoEmMinutos(200);
+        filmeDoGuilherme.setNome("Dogville");
+        filmeDoGuilherme.setAnoDeLancamento(2002);
+        filmeDoGuilherme.avalia(10);
+
+        ArrayList<Filme> listaDeFiles = new ArrayList<>();
+        listaDeFiles.add(filmeDoGuilherme);
+        listaDeFiles.add(meuFilme);
+
+        System.out.println("Tamanho da lista " + listaDeFiles.size());
+        System.out.println("Primeiro filme " + listaDeFiles.get(0).getNome());
+        System.out.println(listaDeFiles);
     }
 }
