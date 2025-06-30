@@ -218,3 +218,55 @@ System.out.println(p); // Saída: Produto: Caderno, Preço: R$ 14.99
 ### ✅ Dica:
 
 - Sempre que quiser que sua classe tenha uma representação de texto personalizada e útil, sobrescreva toString() com @Override.
+
+---
+
+## 🏗️ Construtores em Java
+
+### 📌 O que é?
+
+- Um construtor é um método especial que é chamado automaticamente quando um objeto é instanciado.
+- Serve para inicializar atributos de um objeto.
+- Tem o mesmo nome da classe e não tem tipo de retorno (nem void).
+
+### 🧱 Exemplo:
+```java
+public class Filme {
+    private String titulo;
+    private int ano;
+
+    // Construtor
+    public Filme(String titulo, int ano) {
+        this.titulo = titulo;
+        this.ano = ano;
+    }
+
+    @Override
+    public String toString() {
+        return titulo + " (" + ano + ")";
+    }
+}
+```
+### ▶️ Instanciando um objeto com construtor:
+
+```java
+Filme f = new Filme("Matrix", 1999);
+System.out.println(f); // Matrix (1999)
+```
+### 🔁 Construtor padrão
+
+- Se nenhum construtor for declarado, o compilador cria um construtor padrão (sem parâmetros) automaticamente.
+- Se você criar qualquer construtor, o padrão deixa de ser gerado.
+
+```java
+public class Pessoa {
+    public Pessoa() {
+    System.out.println("Pessoa criada!");
+    }
+}
+```
+
+### 🧠 Dicas:
+
+- Você pode ter vários construtores com parâmetros diferentes (sobrecarga).
+- Use this(...) para chamar outro construtor da mesma classe.
