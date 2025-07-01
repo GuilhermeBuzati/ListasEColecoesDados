@@ -461,3 +461,38 @@ produtos.sort(Comparator.comparing(Produto::getPreco).reversed());
 | Ordem "padrão" para a classe         | `Comparable` (`compareTo`)    |
 | Várias ordenações possíveis          | `Comparator.comparing`        |
 | Comparações simples e temporárias    | `Comparator.comparing`        |
+
+---
+
+## 📚 Por que usar List em vez de ArrayList na declaração?
+
+### 📌 O que é?
+
+- List é uma interface da biblioteca java.util que define um contrato de comportamento para listas.
+- ArrayList é uma implementação específica da interface List.
+
+### 🧱 Exemplo:
+
+```java
+List<String> nomes = new ArrayList<>();
+```
+
+> Em vez de declarar ArrayList<String> nomes = new ArrayList<>();, usamos a interface como tipo de referência.
+
+### ✅ Vantagens de usar List como tipo:
+
+| Vantagem                                 | Explicação                                                                 |
+|------------------------------------------|----------------------------------------------------------------------------|
+| 🔁 **Flexibilidade**                     | Pode trocar `ArrayList` por `LinkedList`, `CopyOnWriteArrayList`, etc., sem mudar o resto do código. |
+| 📐 **Programação orientada a interfaces** | Segue o princípio do "programar para uma interface, não para uma implementação". |
+| 🚫 **Menor acoplamento**                 | O código fica menos dependente de detalhes internos da implementação.     |
+
+### 🧠 Dica:
+
+- Só use ArrayList no lado direito (new ArrayList<>()) ou se precisar de métodos específicos da classe.
+- Isso também se aplica a outras interfaces: Map, Set, etc.
+
+```java
+Map<String, Integer> pontuacoes = new HashMap<>();
+Set<String> palavras = new HashSet<>();
+```
