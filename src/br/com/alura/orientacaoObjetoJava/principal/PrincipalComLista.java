@@ -16,6 +16,8 @@ public class PrincipalComLista {
         meuFilme.avalia(10);
         Serie lost = new Serie("Lost", 2010);
 
+        Filme f1 = filmeDoGuilherme;
+
         ArrayList<Titulo> lista = new ArrayList<>();
         lista.add(meuFilme);
         lista.add(outroFilme);
@@ -24,9 +26,9 @@ public class PrincipalComLista {
 
         for (Titulo item: lista){
             System.out.println(item.getNome());
-            Filme filme = (Filme) item;
-            //Irá dar exception, resolução proxima aula
-            System.out.println(((Filme) item).getClassificacao());
+            if (item instanceof Filme filme && filme.getClassificacao() > 2){
+                System.out.println("Classificação " + filme.getClassificacao());
+            }
         }
 
     }

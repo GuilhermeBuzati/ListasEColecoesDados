@@ -270,3 +270,68 @@ public class Pessoa {
 
 - Você pode ter vários construtores com parâmetros diferentes (sobrecarga).
 - Use this(...) para chamar outro construtor da mesma classe.
+
+---
+
+## 🔗 Variáveis de Referência
+
+### 📌 O que são?
+
+- Em Java, objetos são acessados por referência, ou seja, a variável não armazena o objeto em si, mas sim o endereço (referência) onde ele está na memória.
+
+### 🧱 Exemplo:
+
+```java
+Produto p1 = new Produto("Caneta", 2.50);
+Produto p2 = p1;
+
+p2.setPreco(3.00);
+System.out.println(p1.getPreco()); // Saída: 3.00
+```
+- p1 e p2 apontam para o mesmo objeto na memória. Alterar um afeta o outro.
+
+### ✅ Comparação entre variáveis
+
+- Para comparar conteúdo, use .equals().
+- Para comparar referência (memória), use ==.
+
+```java
+Produto a = new Produto("Livro", 20);
+Produto b = a;
+Produto c = new Produto("Livro", 20);
+
+System.out.println(a == b);        // true (mesma referência)
+System.out.println(a == c);        // false (objetos diferentes)
+System.out.println(a.equals(c));   // depende da implementação de equals()
+```
+
+---
+
+## 🔍 instanceof
+
+### 📌 O que é?
+
+- O operador instanceof verifica se um objeto pertence a uma classe específica (ou herda dela).
+- Retorna true ou false.
+
+### 🧱 Exemplo:
+
+```java
+Animal a = new Gato();
+
+if (a instanceof Gato) {
+    System.out.println("É um gato");
+}
+```
+
+- Muito útil ao usar polimorfismo, para evitar ClassCastException ao fazer casting.
+
+### 👀 Desde Java 16:
+
+- É possível usar instanceof com pattern matching (declaração de variável embutida):
+
+```java
+if (obj instanceof Gato g) {
+    g.miar();
+}
+```
