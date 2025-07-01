@@ -416,3 +416,48 @@ public int compareTo(Produto outro) {
 | `< 0`                  | `this` vem antes de `outro`   |
 | `0`                    | `this` é igual a `outro`      |
 | `> 0`                  | `this` vem depois de `outro`  |
+
+---
+
+## ⚖️ Comparator.comparing (Java 8+)
+
+### 📌 O que é?
+
+- Comparator.comparing() é um método estático da interface Comparator.
+- Permite criar comparadores personalizados de forma simples e expressiva, usando expressões lambda ou method references.
+
+### 🧱 Exemplo: ordenando por nome
+
+```java
+import java.util.Comparator;
+import java.util.Collections;
+
+List<Produto> produtos = new ArrayList<>();
+produtos.add(new Produto("Caderno", 15.0));
+produtos.add(new Produto("Caneta", 2.5));
+produtos.sort(Comparator.comparing(Produto::getNome));
+```
+
+- Com Comparator.comparing(), você não precisa implementar Comparable.
+
+### ✅ Outros exemplos
+
+- Ordenar por preço (crescente):
+
+```java
+produtos.sort(Comparator.comparing(Produto::getPreco));
+```
+
+- Ordenar por preço (decrescente):
+
+```java
+produtos.sort(Comparator.comparing(Produto::getPreco).reversed());
+```
+
+### 🧠 Quando usar Comparator vs Comparable
+
+| Situação                             | Usar                          |
+|--------------------------------------|-------------------------------|
+| Ordem "padrão" para a classe         | `Comparable` (`compareTo`)    |
+| Várias ordenações possíveis          | `Comparator.comparing`        |
+| Comparações simples e temporárias    | `Comparator.comparing`        |
