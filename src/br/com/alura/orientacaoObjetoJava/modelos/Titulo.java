@@ -1,6 +1,6 @@
 package br.com.alura.orientacaoObjetoJava.modelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo>{
     private String nome;
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
@@ -65,5 +65,10 @@ public class Titulo {
 
     public double pegaMedia(){
         return somaAvaliacoes / totalDeAvaliacoes;
+    }
+
+    @Override
+    public int compareTo(Titulo outroTitulo) {
+        return this.getNome().compareTo(outroTitulo.getNome());
     }
 }

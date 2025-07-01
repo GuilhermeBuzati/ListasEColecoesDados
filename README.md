@@ -335,3 +335,84 @@ if (obj instanceof Gato g) {
     g.miar();
 }
 ```
+
+---
+
+## 🔢 Ordenação com Collections.sort() e Comparable
+
+### 📦 Collections.sort()
+
+- Método da classe utilitária java.util.Collections.
+- Permite ordenar listas (List<T>) de forma natural ou com base em comparadores personalizados.
+- A lista precisa conter elementos comparáveis.
+
+```java
+import java.util.Collections;
+import java.util.ArrayList;
+
+ArrayList<String> nomes = new ArrayList<>();
+nomes.add("Maria");
+nomes.add("Ana");
+nomes.add("Carlos");
+
+Collections.sort(nomes);
+System.out.println(nomes); // [Ana, Carlos, Maria]
+```
+
+---
+
+## 🧭 Interface Comparable<T>
+
+### 📌 O que é?
+
+- Interface que permite definir a ordem natural de uma classe.
+- A classe precisa implementar Comparable<T> e sobrescrever o método compareTo().
+
+### 🧱 Exemplo:
+
+```java
+public class Produto implements Comparable<Produto> {
+    private String nome;
+    private double preco;
+
+    public Produto(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    @Override
+    public int compareTo(Produto outro) {
+        return Double.compare(this.preco, outro.preco); // ordena por preço
+    }
+
+    @Override
+    public String toString() {
+        return nome + " R$" + preco;
+    }
+}
+```
+
+### ▶️ Uso:
+
+```
+ArrayList<Produto> lista = new ArrayList<>();
+lista.add(new Produto("Caneta", 2.5));
+lista.add(new Produto("Caderno", 15.0));
+
+Collections.sort(lista);
+System.out.println(lista); // ordenados por preço
+```
+
+### 🧠 Sobre o método compareTo()
+
+```java
+public int compareTo(Produto outro) {
+    return this.nome.compareTo(outro.nome); // ordena por nome
+}
+```
+
+| Retorno de `compareTo` | Significado                   |
+|------------------------|-------------------------------|
+| `< 0`                  | `this` vem antes de `outro`   |
+| `0`                    | `this` é igual a `outro`      |
+| `> 0`                  | `this` vem depois de `outro`  |
